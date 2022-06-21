@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
 
   /* create socket, get sockfd handle */
 
-  portno = atoi(argv[2]);
+  portno = atoi(argv[2]); /* convert string into string*/
   sockfd = socket(AF_INET, SOCK_STREAM, 0);
   if (sockfd < 0)
     error("ERROR opening socket");
@@ -38,11 +38,11 @@ int main(int argc, char *argv[]) {
     fprintf(stderr, "ERROR, no such host\n");
     exit(0);
   }
-  bzero((char *)&serv_addr, sizeof(serv_addr));
+  bzero((char *)&serv_addr, sizeof(serv_addr)); /*This function zero out memory region in C*/
   serv_addr.sin_family = AF_INET;
-  bcopy((char *)server->h_addr, (char *)&serv_addr.sin_addr.s_addr,
-        server->h_length);
-  serv_addr.sin_port = htons(portno);
+  bcopy((char *)server->h_addr, (char *)&serv_addr.sin_addr.s_addr, 
+        server->h_length); /*copy h_length byyes from area pointed by h_arr to s-addr  */
+  serv_addr.sin_port = htons(portno); 
 
   /* connect to server */
 
@@ -53,7 +53,7 @@ int main(int argc, char *argv[]) {
 
   printf("Please enter the message: ");
   bzero(buffer, 256);
-  fgets(buffer, 255, stdin);
+  fgets(buffer, 255, stdin); /*take input string and set the buffer size*/
 
   /* send user message to server */
 
