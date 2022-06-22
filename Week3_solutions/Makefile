@@ -6,7 +6,7 @@ HTTP_SERVER_FILE = http_server.cpp
 all: server
 
 server: $(SERVER_FILE) $(HTTP_SERVER_FILE)
-	$(CC) $(SERVER_FILE) $(HTTP_SERVER_FILE) -o server
+	$(CC) $(SERVER_FILE) $(HTTP_SERVER_FILE) -o server -lpthread
 
 clean:
 	rm -f server
