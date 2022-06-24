@@ -1,0 +1,73 @@
++b main
+Breakpoint 1 at 0x11a9: file fibbonaci.cpp, line 4.
++r
+Starting program: home/bootcamp_2022_vijay_submission/Week1_solutions/week1_warmup/Debugging_with_GDB/fibbonaci 
+
+Breakpoint 1, main (argc=21845, argv=0x7ffff7dc02e8 <__exit_funcs_lock>)
+    at fibbonaci.cpp:4
+4	int main(int argc, char* argv[]) {
++s
+6	  int n = 10;
++s
+8	  int second_last = 1;
++s
+9	  int last = 1;
++s
+11	  cout << second_last << endl << last << endl;
++s
+13	  for(int i=1; i<=10; i++) {
++s
+14	    int next = second_last + last;
++d 1
++r
+Starting program: /home/shubhamch/Courses/IITB Bootcamp22/IITB_Bootcamp22/Week1_solutions/Debugging_with_GDB/fibbonaci 
+[Inferior 1 (process 886547) exited normally]
++b main
+Breakpoint 2 at 0x5555555551a9: file fibbonaci.cpp, line 4.
++r
+Starting program: /home/shubhamch/Courses/IITB Bootcamp22/IITB_Bootcamp22/Week1_solutions/Debugging_with_GDB/fibbonaci 
+
+Breakpoint 2, main (argc=21845, argv=0x7ffff7dc02e8 <__exit_funcs_lock>)
+    at fibbonaci.cpp:4
+4	int main(int argc, char* argv[]) {
++s
+6	  int n = 10;
++s
+8	  int second_last = 1;
++s
+9	  int last = 1;
++s
+11	  cout << second_last << endl << last << endl;
++s
+13	  for(int i=1; i<=10; i++) {
++s
+14	    int next = second_last + last;
++s
+15	    cout << next << endl;
++s
+16	    last = next;
++s
+17	    second_last = last;
++s
+13	  for(int i=1; i<=10; i++) {
++s
+14	    int next = second_last + last;
++s
+15	    cout << next << endl;
++s
+16	    last = next;
++s
+17	    second_last = last;
++s
+13	  for(int i=1; i<=10; i++) {
++s
+14	    int next = second_last + last;
++q
+
+
+################### After Resolving Bug ##############################################################################
+
++r
+Starting program: /home//bootcamp_2022_vijay_submission/Week1_solutions/week1_warmup/Debugging_with_GDB/fibbonaci 
+[Inferior 1 (process 886675) exited normally]
++q

@@ -39,6 +39,8 @@ Following are some basic Linux commands. To know more about them use: <code> man
 
 1. Find the variant of the <code>ls</code> command (i.e. argument(s) to be used) to list contents of a folder including its hidden files, the variant of <code>cp</code> to copy folder and the command to rename a file.
 
+1. Ans: To list the content of the hidden files the variant of the <code>ls</code> is <code>ls-al</code>. 
+
 2. In this question, we will understand the hardware configuration of your working machine using the <code>/proc</code> filesystem.
 
     - Run command <code>more /proc/cpuinfo</code> and explain the following terms: <code>processor</code> and <code>cores</code>. Use the command <code>lscpu</code> to verify your definitions.
@@ -51,6 +53,19 @@ Following are some basic Linux commands. To know more about them use: <code> man
     - How many context switches has the system performed since bootup?
 
 
+Ans 2: The processor and cores fields in the <code>more /proc/cpuinfo</code> are used to indentify each processor and number of cores.  
+
+
+- Sockets : 1, Cores : 6, Processor : 1
+- Processor Frequency : 2.60 GHz
+
+- Memory : 8010052  kB
+- Free memory : 222316  kB, Available memory : 2219228 kB. \
+Free memory is the one which is completely free. While the available memory implies total memory that a user can use if needed to execute other process. It is free + buffer/cache memory.
+- Total number of user-level process is 4194304.
+- Total number of forks since boot is 903838.
+- Total number of context switching done is 2017463252.
+
 3. In this question, we will understand how to monitor the status of a running process using the <code>top</code> command. Compile the program [cpu.c](cpu.c) given to you and execute it in the bash or any other shell of your choice as follows.
     ```console
     gcc --version
@@ -61,5 +76,11 @@ Following are some basic Linux commands. To know more about them use: <code> man
     This program runs in an infinite loop without terminating. Now open another terminal, run the <code>top</code> command and answer the following questions about the cpu process.
 
     - What is the PID of the process running the cpu command?
+    
+    Ans: 22199
     - How much CPU and memory does this process consume?
+    
+    Ans: 100% and memeory usage is 0.0%
     - What is the current state of the process? For example, is it running or in a blocked state or a zombie state?
+    
+    Ans: Running state. 

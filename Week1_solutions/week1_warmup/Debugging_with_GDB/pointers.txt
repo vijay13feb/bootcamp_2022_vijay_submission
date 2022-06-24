@@ -1,0 +1,117 @@
++r
+Starting program: /home//bootcamp_2022_vijay_submission/Week1_solutions/week1_warmup/Debugging_with_GDB/pointers 
+
+Program received signal SIGSEGV, Segmentation fault.
+0x000055555555523e in main (argc=1, argv=0x7fffffffdf98) at pointers.cpp:13
+13	  cout << *p << endl;
++s
+
+Program terminated with signal SIGSEGV, Segmentation fault.
+The program no longer exists.
++n
+The program is not being run.
++r
+Starting program: /home//bootcamp_2022_vijay_submission/Week1_solutions/week1_warmup/Debugging_with_GDB/pointers 
+
+Program received signal SIGSEGV, Segmentation fault.
+0x000055555555523e in main (argc=1, argv=0x7fffffffdf98) at pointers.cpp:13
+13	  cout << *p << endl;
++n
+
+Program terminated with signal SIGSEGV, Segmentation fault.
+The program no longer exists.
++n
+The program is not being run.
++b main
+Breakpoint 1 at 0x5555555551c9: file pointers.cpp, line 4.
++s
+The program is not being run.
++b 12
+Breakpoint 2 at 0x555555555232: file pointers.cpp, line 12.
++r
+Starting program: /home//bootcamp_2022_vijay_submission/Week1_solutions/week1_warmup/Debugging_with_GDB/pointers 
+
+Breakpoint 1, main (argc=21845, argv=0x7ffff7dc02e8 <__exit_funcs_lock>)
+    at pointers.cpp:4
+4	int main(int argc, char* argv[]) {
++s
+6	  int a = 45; int b = 22;
++s
+7	  int *p = &a;
++s
+8	  int *q = NULL;
++s
+10	  cout << *p << endl;
++s
+
+Breakpoint 2, main (argc=1, argv=0x7fffffffdf98) at pointers.cpp:12
+12	  p = q;
++s
+13	  cout << *p << endl;
++s
+
+Program received signal SIGSEGV, Segmentation fault.
+0x000055555555523e in main (argc=1, argv=0x7fffffffdf98) at pointers.cpp:13
+13	  cout << *p << endl;
++s
+
+Program terminated with signal SIGSEGV, Segmentation fault.
+The program no longer exists.
+
+
+
+
+
+After Resolving the bug ###############################################################################################
+
+
+
++b main
+Breakpoint 1 at 0x11e9: file pointers.cpp, line 4.
++r
+Starting program: /home//bootcamp_2022_vijay_submission/Week1_solutions/week1_warmup/Debugging_with_GDB/pointers 
+
+Breakpoint 1, main (argc=21845, argv=0x7ffff7dc02e8 <__exit_funcs_lock>)
+    at pointers.cpp:4
+4	int main(int argc, char* argv[]) {
++s
+6	  int a = 45; int b = 22;
++s
+7	  int *p = &a;
++s
+8	  int *q = NULL;
++s
+10	  cout << *p << endl;
++s
+12	  p = q;
++s
+13	  cout << p << endl;
++s
+15	  p = &b;
++s
+16	  cout << *p << endl;
++s
+18	  return 0;
++s
+19	}
++s
+__libc_start_main (main=0x5555555551e9 <main(int, char**)>, argc=1, 
+    argv=0x7fffffffdf98, init=<optimized out>, fini=<optimized out>, 
+    rtld_fini=<optimized out>, stack_end=0x7fffffffdf88)
+    at ../csu/libc-start.c:342
+342	../csu/libc-start.c: No such file or directory.
++s
+__GI_exit (status=0) at exit.c:138
+138	exit.c: No such file or directory.
++s
+139	in exit.c
++s
+__run_exit_handlers (status=0, listp=0x7ffff7dbb718 <__exit_funcs>, 
+    run_list_atexit=run_list_atexit@entry=true, run_dtors=run_dtors@entry=true)
+    at exit.c:40
+40	in exit.c
++d 1
++r
+Starting program: /home//bootcamp_2022_vijay_submission/Week1_solutions/week1_warmup/Debugging_with_GDB/pointers 
+[Inferior 1 (process 886079) exited normally].
++q

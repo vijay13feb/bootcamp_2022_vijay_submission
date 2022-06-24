@@ -1,5 +1,7 @@
 ## Debugging with GDB
 
+My answer is in text files which contains gdb logs having pre and post bug fix traces
+
 In this part of the assignment, we will give you a high-level introduction to GDB. GDB, short for GNU Debugger, is a simple and intuitive debugger used on Unix systems to debug C and C++ programs. Rather than inserting <code>cout</code> statements at different points in the program, GDB will allow you to `step' through the program as it executes line by line to understand exactly where errors are occurring.
 
 ### Learning GDB
